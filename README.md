@@ -188,4 +188,6 @@ TRAINING_URL=http://127.0.0.1:8080/guide.html NODE_PATH=/tmp/neowiz-qa/node_modu
 
 로고는 AI로 재제작하거나 형태를 합성하지 않았습니다. 네오위즈는 [공식 IR 자료](https://cdn.neowiz.com/neowiz-site/assets/ir-library/3Q25_NWZ-IR-PPT_EN-itjp3znq.pdf)에 포함된 가로형 로고 이미지와 투명도 마스크를 추출했고, 메가존클라우드는 [공식 홈페이지](https://www.megazone.com/)의 검은색 헤더 SVG를 원형대로 저장했습니다. 공식 합작 사업·공동 주최 같은 별도 관계 문구는 추가하지 않았습니다.
 
-현재 산출물은 로컬 확인과 웹 업로드 준비까지 완료된 상태입니다. 공개 호스팅으로 실제 배포한 URL은 아직 없습니다.
+GitHub Pages 공개 주소: https://issu-ai.github.io/neowiz/
+
+게시 원본은 `main` 브랜치의 루트(`/`)입니다. 이후 변경을 `main`에 push하면 Pages가 자동으로 다시 배포합니다. `.nojekyll`로 HTML과 정적 자산을 그대로 게시합니다. 배포 상태는 저장소 Settings → Pages 또는 Actions에서 확인합니다.

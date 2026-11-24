@@ -175,3 +175,7 @@ Desktop/neowiz의 제공 HTML(95,339바이트)과 사전 발송 메일을 확인
 - `tests/home.cjs`와 이전 실습 전체 QA를 재실행했습니다. 다운로드·복사·진행률·인쇄 등 실습 기능을 유지합니다.
 - `scripts/package-site.py`가 메인·실습·로고 두 개만 `dist/`와 `neowiz-ai-training.zip`에 담습니다. 별도 서버 코드나 OAuth 비밀정보는 포함하지 않습니다.
 - 실제 공개 호스팅 배포는 실행하지 않았습니다. 현재 검증 URL은 로컬 서버이며 배포 파일을 제공합니다.
+
+## 15. GitHub Pages 배포
+
+GitHub Pages 게시 원본을 `main` 브랜치의 루트(`/`)로 설정했습니다. 공개 주소는 https://issu-ai.github.io/neowiz/ 입니다. `.nojekyll`을 추가해 정적 파일을 그대로 게시하도록 구성했습니다. 이후 main push는 자동 재배포됩니다. 이전 절의 “공개 배포 미실행” 기록은 해당 작업 시점의 상태입니다.
