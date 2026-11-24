@@ -161,7 +161,7 @@ NODE_PATH=/tmp/neowiz-qa/node_modules node tests/topic2.cjs
 
 ## 메인과 웹 배포
 
-메인에서 “발표자료 보기”는 제공된 [Canva 발표자료](https://canva.link/kzwovkavwfsv1v4)를 새 탭으로 엽니다. 로그인하지 않은 별도 브라우저에서 해당 디자인의 제목 `ai-enablement-101`과 조회 경로를 확인했습니다. 외부 Canva의 공유 정책이 바뀌면 교육 전 링크를 다시 확인하세요. 실습 화면은 상단 “교육 홈”으로 메인에 돌아옵니다.
+메인에서 “발표자료 보기”를 누르면 비밀번호 입력창이 열립니다. 지정한 값과 일치하면 제공된 [Canva 발표자료](https://canva.link/kzwovkavwfsv1v4)를 현재 페이지의 임베드 뷰어에서 표시합니다. 새 창을 띄우지 않습니다. “메인으로”를 누르면 자료를 닫고, 다음에 다시 열 때 비밀번호를 요청합니다. 입력값과 통과 여부는 브라우저 저장소에 저장하지 않습니다. 로그인하지 않은 별도 브라우저에서 해당 디자인의 제목 `ai-enablement-101`과 조회 경로를 확인했습니다. 외부 Canva의 공유 정책이 바뀌면 교육 전 링크를 다시 확인하세요. 실습 화면은 상단 “교육 홈”으로 메인에 돌아옵니다.
 
 ```sh
 python3 scripts/package-site.py
@@ -191,3 +191,13 @@ TRAINING_URL=http://127.0.0.1:8080/guide.html NODE_PATH=/tmp/neowiz-qa/node_modu
 GitHub Pages 공개 주소: https://issu-ai.github.io/neowiz/
 
 게시 원본은 `main` 브랜치의 루트(`/`)입니다. 이후 변경을 `main`에 push하면 Pages가 자동으로 다시 배포합니다. `.nojekyll`로 HTML과 정적 자산을 그대로 게시합니다. 배포 상태는 저장소 Settings → Pages 또는 Actions에서 확인합니다.
+
+## 발표자료 진입 확인
+
+발표자료 비밀번호 비교는 정적 HTML의 브라우저 코드에서 수행합니다. 별도 서버 인증·접근 통제 기능이 아니며 소스 확인이나 Canva 직접 링크 접근을 막을 수 없습니다. 실제 비공개 자료 보호가 필요하면 Canva 자체의 공유 권한이나 서버 인증을 별도로 적용해야 합니다. 이 기능은 교육 페이지의 간단한 진입 확인 용도입니다.
+
+일치 여부를 확인하기 전에는 iframe에 Canva 주소를 지정하지 않습니다. 틀린 입력은 화면 안에서 안내하며, 취소·Escape·메인 복귀 시 입력값을 지웁니다. 실제 Canva 임베드와 키보드·모바일 검사는 다음 명령으로 실행합니다.
+
+```sh
+NODE_PATH=/tmp/neowiz-qa/node_modules node tests/presentation.cjs
+```

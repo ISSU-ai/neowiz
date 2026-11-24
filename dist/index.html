@@ -8,10 +8,14 @@
 <title>네오위즈 AI 업무 활용 교육 | 메가존클라우드</title>
 <style>
 :root{font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;color:#171717;background:#fff;font-synthesis:none;-webkit-font-smoothing:antialiased}
-*{box-sizing:border-box}body{margin:0}main{min-height:100vh;min-height:100svh;display:grid;place-items:center;padding:64px 32px}.home{width:min(880px,100%);text-align:center;padding-bottom:18px}.brands{display:flex;align-items:center;justify-content:center;gap:32px;margin-bottom:62px}.brands img{display:block;height:36px;width:auto;max-width:43%;object-fit:contain}.brands .divider{height:30px;width:1px;background:#d2d2d2;flex-shrink:0}h1{font-size:clamp(2.5rem,5.2vw,4.75rem);line-height:1.2;letter-spacing:-.06em;font-weight:730;margin:0;word-break:keep-all}p{font-size:1.125rem;line-height:1.7;letter-spacing:.015em;color:#595959;margin:22px 0 0}.actions{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:64px auto 0;max-width:720px}.action{min-height:122px;display:flex;align-items:center;justify-content:center;border:1px solid #171717;border-radius:8px;text-decoration:none;font-size:1.625rem;font-weight:650;letter-spacing:-.035em;line-height:1.4;padding:28px 32px;background:#171717;color:#fff;touch-action:manipulation}.action.secondary{background:#fff;color:#171717}.action:hover{background:#353535;color:#fff;border-color:#353535}.action.secondary:hover{background:#f0f0f0;color:#171717;border-color:#171717}.action:active{transform:translateY(1px)}.action:focus-visible{outline:3px solid #171717;outline-offset:6px}
+*{box-sizing:border-box}body{margin:0}main{min-height:100vh;min-height:100svh;display:grid;place-items:center;padding:64px 32px}.home{width:min(880px,100%);text-align:center;padding-bottom:18px}.brands{display:flex;align-items:center;justify-content:center;gap:32px;margin-bottom:62px}.brands img{display:block;height:36px;width:auto;max-width:43%;object-fit:contain}.brands .divider{height:30px;width:1px;background:#d2d2d2;flex-shrink:0}h1{font-size:clamp(2.5rem,5.2vw,4.75rem);line-height:1.2;letter-spacing:-.06em;font-weight:730;margin:0;word-break:keep-all}p{font-size:1.125rem;line-height:1.7;letter-spacing:.015em;color:#595959;margin:22px 0 0}.actions{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:64px auto 0;max-width:720px}.action{font-family:inherit;cursor:pointer;min-height:122px;display:flex;align-items:center;justify-content:center;border:1px solid #171717;border-radius:8px;text-decoration:none;font-size:1.625rem;font-weight:650;letter-spacing:-.035em;line-height:1.4;padding:28px 32px;background:#171717;color:#fff;touch-action:manipulation}.action.secondary{background:#fff;color:#171717}.action:hover{background:#353535;color:#fff;border-color:#353535}.action.secondary:hover{background:#f0f0f0;color:#171717;border-color:#171717}.action:active{transform:translateY(1px)}.action:focus-visible{outline:3px solid #171717;outline-offset:6px}
 @media(max-width:768px){main{padding:48px 28px}.brands{gap:24px;margin-bottom:48px}.brands img{height:32px}.brands .divider{height:27px}.actions{margin-top:48px;gap:16px}.action{min-height:108px;font-size:1.4rem}}
 @media(max-width:480px){main{padding:40px 24px}.home{padding-bottom:0}.brands{gap:18px;margin-bottom:44px}.brands img{height:27px;max-width:44%}.brands .divider{height:24px}h1{font-size:2.35rem;line-height:1.35}p{font-size:1rem;margin-top:16px}.actions{grid-template-columns:1fr;gap:14px;margin-top:40px}.action{min-height:88px;padding:22px;font-size:1.35rem}}
 @media print{main{min-height:auto;padding:30mm 10mm}.action{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+[hidden]{display:none!important}
+dialog{width:min(400px,calc(100vw - 40px));border:1px solid #bcbcbc;border-radius:10px;padding:30px;color:#171717;background:#fff}dialog::backdrop{background:rgba(0,0,0,.36)}dialog h2{font-size:1.5rem;letter-spacing:-.04em;margin:0 0 26px}dialog label{display:block;font-size:.9375rem;font-weight:650;margin-bottom:9px}dialog input{width:100%;min-height:48px;font:inherit;box-sizing:border-box;padding:12px;border:1px solid #999;border-radius:5px;background:#fff;color:#171717}dialog input[aria-invalid="true"]{border-color:#991b1b}dialog .error{font-size:.875rem;color:#991b1b;margin:12px 0 0}.dialog-actions{display:flex;gap:10px;margin-top:24px}.dialog-actions button,.viewer-toolbar button,.viewer-toolbar a{min-height:44px;font:inherit;font-size:.9375rem;font-weight:600;line-height:1.5;padding:10px 18px;border:1px solid #bcbcbc;border-radius:5px;background:#fff;color:#171717;text-decoration:none;cursor:pointer;display:inline-flex;align-items:center;justify-content:center}.dialog-actions button{flex:1}.dialog-actions .primary{background:#171717;color:#fff;border-color:#171717}.dialog-actions button:hover,.viewer-toolbar button:hover,.viewer-toolbar a:hover{background:#eee;color:#171717}.dialog-actions .primary:hover{background:#353535;color:#fff}dialog input:focus-visible,.dialog-actions button:focus-visible,.viewer-toolbar button:focus-visible,.viewer-toolbar a:focus-visible{outline:3px solid #171717;outline-offset:3px}
+#viewer-title:focus{outline:none}body.presentation-open main{display:block;padding:24px}.presentation-view{width:min(1600px,100%);margin:auto}.viewer-toolbar{display:flex;align-items:center;gap:16px;margin-bottom:20px}.viewer-toolbar h1{font-size:1.125rem;font-weight:650;letter-spacing:-.035em;flex:1;margin:0}.viewer-stage{width:100%;aspect-ratio:16/9;max-height:calc(100svh - 112px);background:#f3f3f3}.viewer-stage iframe{width:100%;height:100%;display:block;border:0}
+@media(max-width:480px){dialog{padding:24px}body.presentation-open main{padding:16px 12px}.viewer-toolbar{gap:10px;margin-bottom:16px}.viewer-toolbar button,.viewer-toolbar a{padding:9px 12px;font-size:.875rem}.viewer-stage{max-height:calc(100svh - 100px)}}
 </style>
 <script>
 // Preserve links shared before the separate home page was introduced.
@@ -20,7 +24,7 @@
 </head>
 <body>
 <main>
-<div class="home">
+<div class="home" id="home-screen">
 <div class="brands" aria-label="네오위즈와 메가존클라우드">
 <img src="./assets/neowiz.png" alt="NEOWIZ" width="163" height="36">
 <span class="divider" aria-hidden="true"></span>
@@ -29,10 +33,43 @@
 <h1>AI 업무 활용 교육</h1>
 <p>ChatGPT · Claude</p>
 <nav class="actions" aria-label="교육 자료 선택">
-<a class="action" href="https://canva.link/kzwovkavwfsv1v4" target="_blank" rel="noopener noreferrer" aria-label="발표자료 보기 (새 탭)">발표자료 보기</a>
+<button class="action" id="presentation-button" type="button" aria-haspopup="dialog" aria-controls="presentation-password">발표자료 보기</button>
 <a class="action secondary" href="./guide.html">실습하기</a>
 </nav>
 </div>
+<section class="presentation-view" id="presentation-view" aria-labelledby="viewer-title" hidden>
+<div class="viewer-toolbar"><button id="presentation-back" type="button">메인으로</button><h1 id="viewer-title" tabindex="-1">발표자료</h1><a href="./guide.html">실습하기</a></div>
+<div class="viewer-stage"><iframe id="canva-frame" title="네오위즈 AI 업무 활용 교육 발표자료" allow="fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+</section>
 </main>
+<dialog id="presentation-password" aria-labelledby="password-title">
+<form id="password-form" novalidate>
+<h2 id="password-title">발표자료</h2>
+<label for="presentation-code">비밀번호</label>
+<input id="presentation-code" name="presentation-code" type="password" autocomplete="off" autocapitalize="off" spellcheck="false" maxlength="128" aria-describedby="password-error" required autofocus>
+<p id="password-error" class="error" role="alert" hidden>비밀번호가 맞지 않습니다. 다시 입력해 주세요.</p>
+<div class="dialog-actions"><button id="password-cancel" type="button">취소</button><button class="primary" type="submit">확인</button></div>
+</form>
+</dialog>
+<script>
+(()=>{
+'use strict';
+// A client-side entry check only; the Canva design has its own sharing permissions.
+const password='neowiz1125';
+const embed='https://www.canva.com/design/DAHaGdqIZW0/JyE08zXPAbKZSz-FTNEhtQ/view?embed';
+const button=document.getElementById('presentation-button'),dialog=document.getElementById('presentation-password'),input=document.getElementById('presentation-code'),error=document.getElementById('password-error'),home=document.getElementById('home-screen'),view=document.getElementById('presentation-view'),frame=document.getElementById('canva-frame');
+function clear(){input.value='';input.removeAttribute('aria-invalid');error.hidden=true;}
+button.addEventListener('click',()=>{clear();dialog.showModal();input.focus();});
+document.getElementById('password-cancel').addEventListener('click',()=>{clear();dialog.close();});
+dialog.addEventListener('close',clear);dialog.addEventListener('cancel',clear);
+input.addEventListener('input',()=>{input.removeAttribute('aria-invalid');error.hidden=true;});
+document.getElementById('password-form').addEventListener('submit',event=>{
+ event.preventDefault();
+ if(input.value!==password){input.setAttribute('aria-invalid','true');error.hidden=false;input.focus();input.select();return;}
+ dialog.close();clear();home.hidden=true;view.hidden=false;document.body.classList.add('presentation-open');frame.src=embed;document.title='발표자료 | 네오위즈 AI 업무 활용 교육';window.scrollTo({top:0,behavior:'instant'});document.getElementById('viewer-title').focus({preventScroll:true});
+});
+document.getElementById('presentation-back').addEventListener('click',()=>{frame.removeAttribute('src');view.hidden=true;home.hidden=false;document.body.classList.remove('presentation-open');document.title='네오위즈 AI 업무 활용 교육 | 메가존클라우드';clear();window.scrollTo({top:0,behavior:'instant'});button.focus({preventScroll:true});});
+})();
+</script>
 </body>
 </html>

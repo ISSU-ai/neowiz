@@ -1,0 +1,20 @@
+const {chromium}=require('playwright');const {default:AxeBuilder}=require('@axe-core/playwright');const assert=require('node:assert/strict');
+(async()=>{
+ const browser=await chromium.launch({channel:'chrome'});const context=await browser.newContext({viewport:{width:1478,height:1000}});const page=await context.newPage();const errors=[];page.on('pageerror',e=>errors.push(e.message));let embedRequests=0;page.on('request',r=>{if(r.url().includes('/view?embed'))embedRequests++;});
+ const base=process.env.HOME_URL||'http://127.0.0.1:8080/index.html';await page.goto(base);assert.equal(await page.locator('#canva-frame').getAttribute('src'),null);assert.equal(embedRequests,0);
+ await page.locator('#presentation-button').click();assert.equal(await page.locator('#presentation-password').isVisible(),true);assert.equal(await page.locator('#presentation-code').getAttribute('type'),'password');assert.equal(await page.locator('#presentation-code').evaluate(e=>e===document.activeElement),true);
+ assert.deepEqual((await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze()).violations.map(v=>v.id),[]);
+ await page.screenshot({path:'previews/password-desktop.png'});
+ await page.locator('#presentation-code').fill('wrong-password');await page.locator('#password-form button[type="submit"]').click();assert.equal(await page.locator('#password-error').isVisible(),true);assert.equal(await page.locator('#canva-frame').getAttribute('src'),null);assert.equal(embedRequests,0);assert.equal(context.pages().length,1);
+ await page.locator('#password-cancel').click();assert.equal(await page.locator('#presentation-code').inputValue(),'');await page.locator('#presentation-button').click();await page.keyboard.press('Escape');assert.equal(await page.locator('#presentation-password').isVisible(),false);
+ await page.locator('#presentation-button').click();await page.locator('#presentation-code').fill('neowiz1125');await page.locator('#presentation-code').press('Enter');assert.equal(await page.locator('#presentation-view').isVisible(),true);assert.equal(await page.locator('#home-screen').isVisible(),false);assert.match(await page.locator('#canva-frame').getAttribute('src'),/view\?embed$/);assert.equal(await page.locator('#presentation-code').inputValue(),'');assert.equal(context.pages().length,1);assert.equal(page.url(),base);
+ await page.waitForFunction(()=>document.getElementById('canva-frame').contentWindow!==null);
+ const frame=page.frameLocator('#canva-frame');await frame.locator('body').waitFor({timeout:30000});await page.waitForTimeout(3500);await page.screenshot({path:'previews/presentation-desktop.png'});
+ assert.ok(embedRequests>0);assert.equal(context.pages().length,1);
+ for(const width of [1024,768,390]){await page.setViewportSize({width,height:width===390?844:1000});assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),`overflow ${width}`);}
+ await page.screenshot({path:'previews/presentation-mobile.png'});
+ await page.locator('#presentation-back').click();assert.equal(await page.locator('#canva-frame').getAttribute('src'),null);assert.equal(await page.locator('#home-screen').isVisible(),true);
+ await page.locator('#presentation-button').click();assert.equal(await page.locator('#presentation-password').isVisible(),true);assert.equal(await page.locator('#presentation-code').inputValue(),'');assert.equal(await page.locator('#password-error').isVisible(),false);
+ assert.deepEqual((await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze()).violations.map(v=>v.id),[]);await page.screenshot({path:'previews/password-mobile.png'});
+ assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));await page.locator('#password-cancel').click();await page.locator('.action.secondary').click();await page.locator('#start:visible').waitFor();assert.deepEqual(errors,[]);console.log('PASS: wrong/correct password, cancel/Escape, no pre-auth embed request, real inline Canva, no popup, return/relock, password cleared, mobile, dialog AA, practice access');await browser.close();
+})().catch(e=>{console.error(e);process.exit(1)});
